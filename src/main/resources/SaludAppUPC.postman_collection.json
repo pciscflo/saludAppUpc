@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "106a6c6c-e6d5-46b5-9338-258bda6b61d2",
+		"name": "SaludAppUPC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4117618"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET Centers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXBlIiwiZXhwIjoxNjg3MjcxNTMxLCJub21icmUiOiJyb3NhIiwiaWF0IjoxNjg3MjUzNTMxfQ.NWYwSaxw3GPCE4A9NquGPcxQKCDkTlDIAtq4KIwpfTMfNOWdVvmq1d_EQMexkd9x587Tq_I-MglpVO4TpQlB6g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/centers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"centers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Register Center",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SaveRol",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXBlIiwiZXhwIjoxNjg3MzA5NDU2LCJub21icmUiOiJyb3NhIiwiaWF0IjoxNjg3MjkxNDU2fQ.PwOiW-_6mmoCf6NpzCXfU00i9eBnXBDiNu421Xj2pOQblZSdWxs7dQiAS2GHU_t7wcjRP9VkXKVkqlE7J25nJw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rol\": \"VIP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/roles/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"roles",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
