@@ -22,17 +22,26 @@ public class BusinessHealthCenter {
     public List<HealthCenter> listHealthCenters(){ // 2
         return repositoryHealthCenter.findAll();
     }
+    public double calcPoints(double pointsInfraestructure, double pointsServices){
+        return pointsInfraestructure*0.35 + pointsServices*0.65;
+    }
     public List<HealthCenterDTO> listHealthCenterCalification(){//3
             List<HealthCenter> list = repositoryHealthCenter.findAll();//ya trae los datos
             List<HealthCenterDTO> listDTO = convertToLisDto(list);
             //calculando datos para cada Health
             for (HealthCenterDTO p:listDTO){
-                p.setCalification(p.getPointsInfraeatructure()*0.35 + p.getPointsServices()*0.65);
+                p.setCalification(calcPoints(p.getPointsInfraeatructure(), p.getPointsServices()))  ;
             }
             return listDTO;
     }
     public List<HealthCenter> listHealthCenterType(String type){//4
         return repositoryHealthCenter.findByType(type);
+    }
+    public List<HealthCenter> listHealthCenterByPoitsInfraestructure(Integer points){
+        return repositoryHealthCenter.findHealthCentersByPointsInfraeatructureAfter(points);
+    }
+    public List<HealthCenter> listHealthCentersWithAmbulancesOrderName(){
+        return repositoryHealthCenter.findAllByAmbulancesIsTrueOrderByName();
     }
     private List<HealthCenterDTO> convertToLisDto(List<HealthCenter> list){
         return list.stream()
